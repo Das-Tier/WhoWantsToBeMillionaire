@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+  
+  <question id="0">
+    <text>Столиця Німеччини - це:</text>
+    <a>Бонн</a>
+    <b>Мюнхен</b>
+    <c>Берлін</c>
+    <d>Гамбург</d>
+    <answer>c</answer>
+  </question>
+
+  <question id="1">
+    <text>Скільки біт містить тип Long в C#</text>
+    <a>16</a>
+    <b>32</b>
+    <c>64</c>
+    <d>128</d>
+    <answer>c</answer>
+  </question>
+
+  <question id="2">
+    <text>Країна-організатор Олімпіади в 2000 році</text>
+    <a>Україна</a>
+    <b>США</b>
+    <c>Італія</c>
+    <d>Австралія</d>
+    <answer>d</answer>
+  </question>
+
+  <question id="3">
+    <text>5-та нота музичної гами</text>
+    <a>Фа</a>
+    <b>Соль</b>
+    <c>Мі</c>
+    <d>Ре</d>
+    <answer>b</answer>
+  </question>
+
+  <question id="4">
+    <text>Найшвидший сухопутний ссавець:</text>
+    <a>Газель</a>
+    <b>Слон</b>
+    <c>Єнот</c>
+    <d>Гепард</d>
+    <answer>d</answer>
+  </question>
+
+  <question id="5">
+    <text>Скільки частин фільма Термінатор знято?</text>
+    <a>2</a>
+    <b>3</b>
+    <c>4</c>
+    <d>5</d>
+    <answer>d</answer>
+  </question>
+
+  <question id="6">
+    <text>Самий титулований пілот Формули-1:</text>
+    <a>А.Сенна</a>
+    <b>А.Прост</b>
+    <c>М.Шумахер</c>
+    <d>С.Феттель</d>
+    <answer>c</answer>
+  </question>
+
+  <question id="7">
+    <text>Як називається короткий боковий удар в боксі?</text>
+    <a>Джеп</a>
+    <b>Свінг</b>
+    <c>Аперкот</c>
+    <d>Хук</d>
+    <answer>d</answer>
+  </question>
+
+  <question id="8">
+    <text>В якому році заснований Львів?</text>
+    <a>1318</a>
+    <b>1256</b>
+    <c>1147</c>
+    <d>1422</d>
+    <answer>b</answer>
+  </question>
+  
+  <question id="9">
+    <text>Як називається атом із зміненою кількістю нейтронів</text>
+    <a>Ізотоп</a>
+    <b>Квант</b>
+    <c>Катіон</c>
+    <d>Аніон</d>
+    <answer>a</answer>
+  </question>
+  
+  <question id="10">
+    <text>Яку назву мала ядерна бомба, що на випробування створила найпотужніший вибух в історії?</text>
+    <a>Сатана</a>
+    <b>Кузькіна мать</b>
+    <c>Царь-бомба</c>
+    <d>Тополь-М</d>
+    <answer>c</answer>
+  </question>
+  
+  <question id="11">
+    <text>Хто зіграв головну роль у фільмі "Форрест Гамп"?</text>
+    <a>Стів Морз</a>
+    <b>Біл Мюррей</b>
+    <c>Том Круз</c>
+    <d>Том Хенкс</d>
+    <answer>d</answer>
+  </question>
+  
+  <question id="12">
+    <text>Хто є фронтменом легендарного гурту "Rolling Stones"?</text>
+    <a>Кіт Річардс</a>
+    <b>Мік Джаггер</b>
+    <c>Джон Морісон</c>
+    <d>Стівен Тайлер</d>
+    <answer>b</answer>
+  </question>
+  
+  <question id="13">
+    <text>В якому році гривня офіційно стала національною грошовою одиницею?</text>
+    <a>1992</a>
+    <b>1994</b>
+    <c>1996</c>
+    <d>1998</d>
+    <answer>d</answer>
+  </question>
+  
+  <question id="14">
+    <text>Яка швидкість світла?</text>
+    <a>300000 м/c</a>
+    <b>300000 км/c</b>
+    <c>30000000 км/c</c>
+    <d>30000 км/с</d>
+    <answer>b</answer>
+  </question>
+  
+</questions>

@@ -1,0 +1,73 @@
+﻿body 
+{
+    background-color:Maroon;
+    color:Black;
+    font-weight:bold;
+    font-size:18px;
+}
+
+h1
+{
+    color:Yellow; 
+    text-align:center;
+}    
+
+#div_question
+{
+     height:50px;
+     width:auto;
+     border:solid;
+     border-width:thin;
+     border-color:blue;
+     font-size:25px;
+     text-align:center;  
+     vertical-align:middle; 
+     padding:15px;
+}
+  
+.button
+{
+    height: 50px;
+    width:150px;
+    background-color: Lime;
+    text-align: center;
+    border-style:inset;
+    font: 24pt;
+    font-weight:bold;
+    color: Black;
+    margin-right:130px;
+}
+
+.button_helpers
+{    
+    height: 50px;
+    width:150px;
+    background-color: Yellow;
+    text-align: center;
+    border-style:inset;
+    font: 24pt;
+    font-weight:bold;
+    color:Black;
+}
+
+#div_score
+{    
+    height:50px;
+    width:150px;
+    background-color: Yellow;
+    text-align: center;
+    border-style:inset;
+    font: 24pt;
+    font-weight:bold;
+    vertical-align:baseline;
+    color:Black;
+}   
+
+.footer
+{
+    background-color:Black;
+    color:White;
+    height:25px;
+    width:auto;
+    text-align:center;
+}

@@ -1,0 +1,5 @@
+C:\Documents and Settings\User\ASP.NET\Millionaire\Millionaire.WebForms\bin\Millionaire.WebForms.dll
+C:\Documents and Settings\User\ASP.NET\Millionaire\Millionaire.WebForms\bin\Millionaire.WebForms.pdb
+C:\Documents and Settings\User\ASP.NET\Millionaire\Millionaire.WebForms\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\User\ASP.NET\Millionaire\Millionaire.WebForms\obj\Debug\Millionaire.WebForms.dll
+C:\Documents and Settings\User\ASP.NET\Millionaire\Millionaire.WebForms\obj\Debug\Millionaire.WebForms.pdb
