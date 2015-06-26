@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Millionaire.WebForms", "Millionaire.WebForms\Millionaire.WebForms.csproj", "{B75CFF19-E76F-4A4D-BAB7-DFEF0ACA31DB}"
 EndProject
 Global

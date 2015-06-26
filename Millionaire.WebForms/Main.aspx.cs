@@ -12,12 +12,20 @@ namespace Millionaire.WebForms
 {
     public partial class Main : System.Web.UI.Page
     {
+        public string name;
         public Game game;
         protected void Page_Load(object sender, EventArgs e)
         {
+            game = new Game(Server.MapPath("/App_Data/Data.xml"));
+            
             if (Session["gameState"] == null)
             {
                 game = new Game(Server.MapPath("/App_Data/Data.xml"));
+                lbl_score.Text = game.Score[game.Step].ToString();
+                SetQuestion();
+                btn_halfONhalf.Visible = true;
+                btn_friendHelp.Visible = true;
+                btn_auditoryHelp.Visible = true;
                 Session["gameState"] = game;
             }
             else
@@ -49,8 +57,12 @@ namespace Millionaire.WebForms
             }
             else
             {
-                rdbl_answers.Items.FindByValue(game.Questions[game.Step].Answer).Text += "--- Правильна відповідь!";
-                Response.Redirect("Finish.aspx");
+                 
+                string cleanMessage="Невірно! Правильна відповідь " + game.Questions[game.Step].Answer.ToString();
+                string script = string.Format("alert('{0}'); window.location='"+Request.ApplicationPath+"Finish.aspx';", cleanMessage);
+                this.ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", script, true);
+                
+//                Response.Redirect("Finish.aspx");
             }
         }
 
@@ -80,9 +92,10 @@ namespace Millionaire.WebForms
         {
             btn_auditoryHelp.Visible = false;
             string requestQuery = String.Format("http://www.google.com/search?q=" + game.Questions[game.Step].Ask.Replace(" ", "+"));
-            ClientScript.RegisterStartupScript(this.GetType(), "window.open", "window.open('"+requestQuery +"')", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "window.open", "window.open('" +requestQuery +"')", true);
         }
 
+        #region Helpers
         private void SetQuestion()
         {
             lbl_question.Text = game.Questions[game.Step].Ask;
@@ -139,6 +152,7 @@ namespace Millionaire.WebForms
                 rdbl_answers.Items.FindByValue("c").Enabled = false;
             }
         }
+        #endregion
     }
 }
 

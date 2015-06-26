@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Main.aspx.cs" Inherits="Millionaire.WebForms.Main" %>
+<%@  PreviousPageType VirtualPath="~/Start.aspx"%>
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>

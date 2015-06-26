@@ -9,6 +9,8 @@ namespace Millionaire.WebForms.Code
 {
     public class Game
     {
+        
+        public static string Name { get; set; }
         public int Step { get; set; }
         public int [] Score { get;  set; }
         public int Unburned { get; set; }
@@ -17,7 +19,7 @@ namespace Millionaire.WebForms.Code
         {
             Score = new int []{ 0, 100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000 };
             Step = 0;
-            Unburned = 0;
+            Unburned = 0;           
             Questions = new List<Question>();
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load(path);
