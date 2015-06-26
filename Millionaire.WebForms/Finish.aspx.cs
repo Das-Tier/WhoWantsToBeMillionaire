@@ -20,7 +20,7 @@ namespace Millionaire.WebForms
 
         protected void btn_gotostart_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Main.aspx");
+            Response.Redirect("Start.aspx");
         }
     }
 }
