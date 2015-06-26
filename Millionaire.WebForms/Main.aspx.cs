@@ -56,13 +56,11 @@ namespace Millionaire.WebForms
                 }
             }
             else
-            {
-                 
-                string cleanMessage="Невірно! Правильна відповідь " + game.Questions[game.Step].Answer.ToString();
+            {                 
+                string cleanMessage="Невірно! Правильна відповідь: " + rdbl_answers.Items.FindByValue(game.Questions[game.Step].Answer.ToString()).Text;
                 string script = string.Format("alert('{0}'); window.location='"+Request.ApplicationPath+"Finish.aspx';", cleanMessage);
                 this.ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", script, true);
-                
-//                Response.Redirect("Finish.aspx");
+             
             }
         }
 
@@ -118,15 +116,14 @@ namespace Millionaire.WebForms
             MailMessage Message = new MailMessage();
             Message.Subject = "Millionaire";
             Message.Body = lbl_question.Text.ToString();
-            Message.BodyEncoding = Encoding.GetEncoding("Windows-1254"); // Turkish Character Encoding// кодировка эсли нужно!
+            Message.BodyEncoding = Encoding.GetEncoding("Windows-1254"); 
             Message.From = new System.Net.Mail.MailAddress("vitalijmogola@gmail.com");
             Message.To.Add(new MailAddress("some@gmail.com"));
-            System.Net.Mail.SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 1001);//эсли здесь заполнено то строчка ниже не нужна!!!!
+            System.Net.Mail.SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 574);
             Smtp.Host = "smtp.gmail.com";
             Smtp.EnableSsl = true;
-            Smtp.Credentials = new System.Net.NetworkCredential("vitalijmogola@gmail.com", "rk12espd8");
+            Smtp.Credentials = new System.Net.NetworkCredential("vitalijmogola@gmail.com", "password");
             Smtp.Send(Message);
-
         }
 
         private void HalfOnHalf()

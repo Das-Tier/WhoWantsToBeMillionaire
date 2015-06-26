@@ -63,6 +63,7 @@
     <Content Include="css\style.css" />
     <Content Include="Finish.aspx" />
     <Content Include="Main.aspx" />
+    <Content Include="MoneyControl.ascx" />
     <Content Include="scripts\script.js" />
     <Content Include="Start.aspx" />
     <Content Include="Web.config" />
@@ -90,6 +91,13 @@
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Question.cs" />
+    <Compile Include="MoneyControl.ascx.cs">
+      <DependentUpon>MoneyControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoneyControl.ascx.designer.cs">
+      <DependentUpon>MoneyControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

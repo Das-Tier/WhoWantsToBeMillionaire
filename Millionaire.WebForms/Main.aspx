@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Main.aspx.cs" Inherits="Millionaire.WebForms.Main" %>
-<%@  PreviousPageType VirtualPath="~/Start.aspx"%>
+<%@ Register Src="MoneyControl.ascx" TagPrefix="User" TagName="MoneyControl" %>
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
@@ -28,10 +28,10 @@
             </asp:RadioButtonList>
         </div>
         <asp:Button ID="btn_check" Text="Відповісти" runat="server" OnClick="btn_check_Click"
-            CssClass="button" />
-        
+            CssClass="button" />        
     </div>
     <div>
         <asp:Label ID="lbl_score" runat="server" Text="0" CssClass="button_helpers"></asp:Label>
+        <User:MoneyControl runat="server" ID="uc_moneyCtrl"/>        
     </div>
 </asp:Content>

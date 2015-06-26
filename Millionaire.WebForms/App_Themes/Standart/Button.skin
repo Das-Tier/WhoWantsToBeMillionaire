@@ -1,1 +1,1 @@
-﻿<asp:Button runat="server" BackColor="Lime" BorderColor="Black"/>
+﻿<asp:Button runat="server" BackColor="Lime" BorderColor="Black" Height="50px" Width="150px" ForeColor="Black" Font-Size="16px"/>

@@ -26,28 +26,18 @@ h1
 }
   
 .button
-{
-    
-    height: 50px;
-    width:150px;
+{   
     text-align: center;
     border-style:inset;
-    font: 24pt;
-    font-weight:bold;
-    color: Black;
     margin-right:130px;
+    font-weight:bold;
 }
 
 .button_helpers
-{    
-    height: 50px;
-    width:150px;
-    background-color: Yellow;
+{       
     text-align: center;
     border-style:inset;
-    font: 24pt;
-    font-weight:bold;
-    color:Black;
+    font-weight:bold;    
 }
 
 #div_score

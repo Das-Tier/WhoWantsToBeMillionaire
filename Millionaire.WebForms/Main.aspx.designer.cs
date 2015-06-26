@@ -85,15 +85,12 @@ namespace Millionaire.WebForms {
         protected global::System.Web.UI.WebControls.Label lbl_score;
         
         /// <summary>
-        /// PreviousPage свойство.
+        /// uc_moneyCtrl элемент управления.
         /// </summary>
         /// <remarks>
-        /// Автоматически создаваемое свойство.
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        public new Millionaire.WebForms.Start PreviousPage {
-            get {
-                return ((Millionaire.WebForms.Start)(base.PreviousPage));
-            }
-        }
+        protected global::Millionaire.WebForms.MoneyControl uc_moneyCtrl;
     }
 }
