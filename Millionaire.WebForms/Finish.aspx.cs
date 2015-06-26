@@ -14,6 +14,7 @@ namespace Millionaire.WebForms
         protected void Page_Load(object sender, EventArgs e)
         {
             game = (Game)Session["gameState"];
+            lbl_Name.Text = Game.Name + "! ";
             lbl_result.Text = String.Format(game.Unburned.ToString() + "$");
         }
 
