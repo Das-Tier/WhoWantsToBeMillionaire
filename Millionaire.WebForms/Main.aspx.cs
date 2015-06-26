@@ -4,52 +4,60 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Threading;
 using System.Net.Mail;
 using System.Text;
+using Millionaire.WebForms.Code;
 
 namespace Millionaire.WebForms
 {
-    public partial class Game : System.Web.UI.Page
+    public partial class Main : System.Web.UI.Page
     {
+        public Game game;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Global.Step == 5 || Global.Step == 10)
+            if (Session["gameState"] == null)
             {
-                Global.Unburned = Global.Score[Global.Step];
+                game = new Game(Server.MapPath("/App_Data/Data.xml"));
+                Session["gameState"] = game;
+            }
+            else
+            {
+                game = (Game)Session["gameState"];
+            }
+            if (game.Step == 5 || game.Step == 10)
+            {
+                game.Unburned = game.Score[game.Step];
             }
         }
 
-        #region Click-Handlers
         protected void btn_check_Click(object sender, EventArgs e)
         {
-            if (rdbl_answers.SelectedItem.Value == Global.questions[Global.Step].Answer)
+            if (rdbl_answers.SelectedItem.Value == game.Questions[game.Step].Answer)
             {
-                Global.Step++;
-                if (Global.Step == 15)
+                game.Step++;
+                if (game.Step == 15)
                 {
-                    Global.Unburned = 1000000;
-                    Response.Redirect("end.aspx");
+                    game.Unburned = 1000000;
+                    Response.Redirect("Finish.aspx");
                 }
                 else
                 {
-                    lbl_score.Text = Global.Score[Global.Step].ToString();
+                    lbl_score.Text = game.Score[game.Step].ToString();
                     SetQuestion();
                     SetAnswersTrue();
                 }
             }
             else
             {
-                rdbl_answers.Items.FindByValue(Global.questions[Global.Step].Answer).Text += "--- Правильна відповідь!";
-                Response.Redirect("End.aspx");
+                rdbl_answers.Items.FindByValue(game.Questions[game.Step].Answer).Text += "--- Правильна відповідь!";
+                Response.Redirect("Finish.aspx");
             }
         }
 
         protected void btn_newgame_Click(object sender, EventArgs e)
         {
-            Global.Step = 0;
-            Global.Unburned = 0;
-            lbl_score.Text = Global.Score[Global.Step].ToString();
+            game = new Game(Server.MapPath("/App_Data/Data.xml"));            
+            lbl_score.Text = game.Score[game.Step].ToString();
             SetQuestion();
             btn_halfONhalf.Visible = true;
             btn_friendHelp.Visible = true;
@@ -71,20 +79,17 @@ namespace Millionaire.WebForms
         protected void btn_auditoryHelp_Click(object sender, EventArgs e)
         {
             btn_auditoryHelp.Visible = false;
-            string question = Global.questions[Global.Step].Ask.Replace(" ", "+");
-            string request = String.Format("http://www.google.com/search?q=" + question);
-            Response.Redirect(request);
+            string requestQuery = String.Format("http://www.google.com/search?q=" + game.Questions[game.Step].Ask.Replace(" ", "+"));
+            ClientScript.RegisterStartupScript(this.GetType(), "window.open", "window.open('"+requestQuery +"')", true);
         }
-        #endregion
 
-        #region Helpers
         private void SetQuestion()
         {
-            lbl_question.Text = Global.questions[Global.Step].Ask;
-            rdbl_answers.Items.FindByValue("a").Text = Global.questions[Global.Step].A;
-            rdbl_answers.Items.FindByValue("b").Text = Global.questions[Global.Step].B;
-            rdbl_answers.Items.FindByValue("c").Text = Global.questions[Global.Step].C;
-            rdbl_answers.Items.FindByValue("d").Text = Global.questions[Global.Step].D;
+            lbl_question.Text = game.Questions[game.Step].Ask;
+            rdbl_answers.Items.FindByValue("a").Text = game.Questions[game.Step].A;
+            rdbl_answers.Items.FindByValue("b").Text = game.Questions[game.Step].B;
+            rdbl_answers.Items.FindByValue("c").Text = game.Questions[game.Step].C;
+            rdbl_answers.Items.FindByValue("d").Text = game.Questions[game.Step].D;
         }
 
         private void SetAnswersTrue()
@@ -99,31 +104,31 @@ namespace Millionaire.WebForms
         {
             MailMessage Message = new MailMessage();
             Message.Subject = "Millionaire";
-            Message.Body =  lbl_question.Text.ToString();
+            Message.Body = lbl_question.Text.ToString();
             Message.BodyEncoding = Encoding.GetEncoding("Windows-1254"); // Turkish Character Encoding// кодировка эсли нужно!
             Message.From = new System.Net.Mail.MailAddress("vitalijmogola@gmail.com");
-            Message.To.Add(new MailAddress( "some@gmail.com"));
+            Message.To.Add(new MailAddress("some@gmail.com"));
             System.Net.Mail.SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 1001);//эсли здесь заполнено то строчка ниже не нужна!!!!
             Smtp.Host = "smtp.gmail.com";
-            Smtp.EnableSsl = true; 
+            Smtp.EnableSsl = true;
             Smtp.Credentials = new System.Net.NetworkCredential("vitalijmogola@gmail.com", "rk12espd8");
             Smtp.Send(Message);
-                       
+
         }
 
         private void HalfOnHalf()
         {
-            if (rdbl_answers.Items.FindByValue("a").Value == Global.questions[Global.Step].Answer)
+            if (rdbl_answers.Items.FindByValue("a").Value == game.Questions[game.Step].Answer)
             {
                 rdbl_answers.Items.FindByValue("b").Enabled = false;
                 rdbl_answers.Items.FindByValue("c").Enabled = false;
             }
-            else if (rdbl_answers.Items.FindByValue("b").Value == Global.questions[Global.Step].Answer)
+            else if (rdbl_answers.Items.FindByValue("b").Value == game.Questions[game.Step].Answer)
             {
                 rdbl_answers.Items.FindByValue("a").Enabled = false;
                 rdbl_answers.Items.FindByValue("c").Enabled = false;
             }
-            else if (rdbl_answers.Items.FindByValue("c").Value == Global.questions[Global.Step].Answer)
+            else if (rdbl_answers.Items.FindByValue("c").Value == game.Questions[game.Step].Answer)
             {
                 rdbl_answers.Items.FindByValue("a").Enabled = false;
                 rdbl_answers.Items.FindByValue("d").Enabled = false;
@@ -134,6 +139,6 @@ namespace Millionaire.WebForms
                 rdbl_answers.Items.FindByValue("c").Enabled = false;
             }
         }
-        #endregion
     }
 }
+

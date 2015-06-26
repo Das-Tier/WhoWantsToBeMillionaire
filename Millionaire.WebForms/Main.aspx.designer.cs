@@ -10,16 +10,7 @@
 namespace Millionaire.WebForms {
     
     
-    public partial class Game {
-        
-        /// <summary>
-        /// frm_game элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frm_game;
+    public partial class Main {
         
         /// <summary>
         /// btn_newgame элемент управления.

@@ -2,30 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.Xml;
 
-namespace Millionaire.WebForms
+
+namespace Millionaire.WebForms.Code
 {
-    public class Global : System.Web.HttpApplication
+    public class Game
     {
-        public static int Step;
-        public static int Unburned;
-        public static int[] Score = { 0, 100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000 };
-        public static List<Question> questions;
-        protected void Application_Start(object sender, EventArgs e)
+        public int Step { get; set; }
+        public int [] Score { get;  set; }
+        public int Unburned { get; set; }
+        public List<Question> Questions { get; set; }
+        public Game(string path)
         {
-
-        }
-
-        protected void Session_Start(object sender, EventArgs e)
-        {
+            Score = new int []{ 0, 100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000 };
             Step = 0;
             Unburned = 0;
-            questions = new List<Question>();
+            Questions = new List<Question>();
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(Server.MapPath("/App_Data/Data.xml"));
+            xDoc.Load(path);
             XmlElement xRoot = xDoc.DocumentElement;
             foreach (XmlElement xnode in xRoot)
             {
@@ -55,34 +50,8 @@ namespace Millionaire.WebForms
                     if (childnode.Name == "answer")
                         quiz.Answer = childnode.InnerText;
                 }
-                questions.Add(quiz);
+                Questions.Add(quiz);
             }
-        }
-
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_AuthenticateRequest(object sender, EventArgs e)
-        {
-
-        }
-        
-        protected void Application_Error(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void Session_End(object sender, EventArgs e)
-        {
-            Step = 0;
-            Unburned = 0;
-        }
-
-        protected void Application_End(object sender, EventArgs e)
-        {
-
         }
     }
 }

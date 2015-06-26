@@ -10,16 +10,7 @@
 namespace Millionaire.WebForms {
     
     
-    public partial class End {
-        
-        /// <summary>
-        /// frm_end элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frm_end;
+    public partial class Finish {
         
         /// <summary>
         /// lbl_result элемент управления.

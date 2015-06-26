@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Millionaire.WebForms
 {
-    public partial class End : System.Web.UI.Page
+    public partial class Start : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbl_result.Text = String.Format(Global.Unburned.ToString() + "$");
-        }
 
-        protected void btn_gotostart_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("default.aspx");
         }
     }
 }

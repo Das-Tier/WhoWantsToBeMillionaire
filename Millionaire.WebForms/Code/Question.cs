@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Millionaire.WebForms
+namespace Millionaire.WebForms.Code
 {
     public class Question
     {
